@@ -28,6 +28,7 @@ pipeline {
                 script {
                     // Optional: Deployment logic
                     // sh './deploy.sh'
+                    return
                 }
             }
         }
