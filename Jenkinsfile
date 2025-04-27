@@ -14,10 +14,7 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 script {
-                    // Run tests inside a Python Docker container
-                    docker.image('python:3.9').inside {
-                        sh 'python -m unittest discover'
-                    }
+                    sh 'python -m unittest discover'
                 }
             }
         }
@@ -32,3 +29,4 @@ pipeline {
         }
     }
 }
+
