@@ -6,8 +6,11 @@ pipeline {
             steps {
                 echo 'Building the app...'
                 script {
-                    // Optional: Docker build step
-                    // docker.build("my-simple-app")
+                    // Define closure explicitly to avoid ambiguity
+                    return { 
+                        // Optional: Docker build step
+                        // docker.build("my-simple-app")
+                    }()
                 }
             }
         }
@@ -16,8 +19,10 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 script {
-                    // Explicitly defining closure parameter 'it'
-                    sh 'python -m unittest discover'
+                    return { 
+                        // Ensure to explicitly define a closure parameter if needed
+                        sh 'python -m unittest discover'
+                    }()
                 }
             }
         }
@@ -26,9 +31,10 @@ pipeline {
             steps {
                 echo 'Deploying the app...'
                 script {
-                    // Optional: Deployment logic
-                    // sh './deploy.sh'
-                    return
+                    return { 
+                        // Optional: Deployment logic
+                        // sh './deploy.sh'
+                    }()
                 }
             }
         }
