@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 script {
-                    // Run Python unit tests
+                    // Explicitly defining closure parameter 'it'
                     sh 'python -m unittest discover'
                 }
             }
